@@ -36,14 +36,14 @@
 	<context:component-scan base-package="com.javalec.spring_mybatis" />
 			
 	<!-- 1. Mybatis DB 프로그램에서 사용할 객체 -->
-	<beans:bean name="dao" class="com.javalec.spring_mybatis.dao.ContentDao">
+	<beans:bean name="dao" class="com.javalec.spring_mybatis.repository.ContentDao">
 		<beans:property name="template" ref="template"></beans:property>
 	</beans:bean>
 	
 	<!-- 2. Mybatis DB 프로그램에서 사용할 객체 --> 
 	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource" /> 
-		<beans:property name="mapperLocations" value="classpath:com/javalec/spring_mybatis/dao/mapper/*.xml" />
+		<beans:property name="mapperLocations" value="classpath:com/javalec/spring_mybatis/repository/mapper/*.xml" />
 	</beans:bean>
 
 	<!-- 3. Mybatis DB 프로그램의 자동화 객체 -> template -->

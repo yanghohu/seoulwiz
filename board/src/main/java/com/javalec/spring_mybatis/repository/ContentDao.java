@@ -1,4 +1,4 @@
-package com.javalec.spring_mybatis.dao;
+package com.javalec.spring_mybatis.repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.PreparedStatementSetter;
 
-import com.javalec.spring_mybatis.dto.ContentDto;
+import com.javalec.spring_mybatis.domain.ContentVo;
 
 public class ContentDao implements IDao{
 
@@ -27,9 +27,9 @@ public class ContentDao implements IDao{
 	}
 	
 	@Override
-	public ArrayList<ContentDto> listDao() {
+	public ArrayList<ContentVo> listDao() {
 		String query = "select * from board order by mId desc";
-		ArrayList<ContentDto> dtos = (ArrayList<ContentDto>) template.query(query, new BeanPropertyRowMapper<ContentDto>(ContentDto.class));
+		ArrayList<ContentVo> dtos = (ArrayList<ContentVo>) template.query(query, new BeanPropertyRowMapper<ContentVo>(ContentVo.class));
 		return dtos;
 	}
 	
@@ -55,11 +55,11 @@ public class ContentDao implements IDao{
 
 	
 	@Override
-	public ContentDto viewDao(String strID) {
+	public ContentVo viewDao(String strID) {
 		System.out.println("viewDao()");
 		
 		String query = "select * from board where mId = " + strID;
-		return template.queryForObject(query, new BeanPropertyRowMapper<ContentDto>(ContentDto.class));
+		return template.queryForObject(query, new BeanPropertyRowMapper<ContentVo>(ContentVo.class));
 	}
 
 	

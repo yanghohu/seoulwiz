@@ -1,16 +1,16 @@
-package com.javalec.spring_mybatis.dto;
+package com.javalec.spring_mybatis.domain;
 
-public class ContentDto {
+public class ContentVo {
 
 	private int mId;
 	private String mWriter;
 	private String mContent;
 
-	public ContentDto() {
+	public ContentVo() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public ContentDto(int mId, String mWriter, String mContent) {
+	public ContentVo(int mId, String mWriter, String mContent) {
 		this.mId = mId;
 		this.mWriter = mWriter;
 		this.mContent = mContent;
